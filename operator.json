@@ -1,10 +1,17 @@
 {
-  "name": "Template R operator",
-  "description": "Return the medium value of a cell",
-  "tags": ["template"],
+  "name": "Logistic regression operator",
+  "description": "Perform a logistic regression on a set of data points.",
+  "tags": ["statistical testing", "linear model", "test"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_R_operator"],
-  "properties": []
+  "urls": ["https://github.com/tercen/logistic_regression_operator"],
+  "properties": [
+   {
+    "kind": "DoubleProperty",
+    "name": "N",
+    "defaultValue": 1,
+    "description": "Size N (binomial distribution parameter)."
+    } 
+  ]
 }
 
 
