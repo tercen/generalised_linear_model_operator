@@ -1,6 +1,6 @@
 {
-  "name": "Logistic regression operator",
-  "description": "Perform a logistic regression on a set of data points.",
+  "name": "Logistic Regression",
+  "description": "Calculates a probability of whether a data point will meet a binary criteria.",
   "tags": ["statistical testing", "linear model", "test"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/logistic_regression_operator"],
