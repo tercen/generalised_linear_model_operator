@@ -14,7 +14,7 @@ Input projection|.
 
 Input parameters|.
 ---|---
-`N`        | size (binomial parameter; default is 1)
+`N`        | size (binomial parameter, default is 1)
 
 Output relations|.
 ---|---
