@@ -1,14 +1,11 @@
 library(tercen)
 library(dplyr)
 
-options("tercen.workflowId" = "d330322c43363eb4f9b27738ef0042b9")
-options("tercen.stepId"     = "e58021c6-9256-466b-852e-fdce91086d43")
+options("tercen.workflowId" = "0add2df8c4543198d0b9ab7b55003e76")
+options("tercen.stepId"     = "7d8db72d-ae03-4eb2-8230-ef97acf227ef")
 
 getOption("tercen.workflowId")
 getOption("tercen.stepId")
-
-library(tercen)
-library(dplyr)
 
 do.glm <- function(df, N, levels) {
   response <- cbind(df$.y, N - df$.y)
@@ -40,7 +37,7 @@ do.glm <- function(df, N, levels) {
   return(df_out)
 }
 
-(ctx = tercenCtx())  
+ctx <- tercenCtx()
 
 # get input par: size
 N <- 2

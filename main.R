@@ -31,7 +31,7 @@ do.glm <- function(df, N, levels) {
   return(df_out)
 }
 
-(ctx = tercenCtx())  
+ctx <- tercenCtx()
 
 # get input par: size
 N <- 2
