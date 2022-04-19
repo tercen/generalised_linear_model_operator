@@ -1,49 +1,63 @@
 library(tercen)
 library(dplyr)
+library(lme4)
+library(broom)
+library(broom.mixed)
 
-do.glm <- function(df, N, levels) {
-  response <- cbind(df$.y, N - df$.y)
-  variable <- df$variable
-  nms <- unique(variable)
-  
-  cnam <- c(paste0("coef_", levels), paste0("pval_", nms), "pval_full")
-  df_out <- rep(NA, length(cnam))
-  names(df_out) <- cnam
-  df_out <- as.data.frame(t(df_out))
-  
-  if(length(nms) == 1) return(df_out)
-  
-  m <- try(glm(response ~ variable - 1, family = "binomial"))
-  if(class(m) == "try-error") return(df_out)
-  
-  null <- glm(response ~ 1, family = "binomial") # null model
-  df_out["pval_full"] <- with(anova(null, m), pchisq(Deviance,Df,lower.tail=FALSE)[2])
-  
-  mod <- summary(m)$coefficients
-  estimate <- mod[, 1]
-  names(estimate) <- paste0("coef_", nms)
-  df_out[names(estimate)] <- estimate
-  
-  pvalue <- mod[, 4]
-  names(pvalue) <- paste0("pval_", nms)
-  df_out[names(pvalue)] <- pvalue
-  
-  return(df_out)
-}
+# options("tercen.workflowId"= "1c421ac85832bc0e153d047644b2304c")
+# options("tercen.stepId"= "934e99de-54ee-482f-a443-88283abd6874")
 
 ctx <- tercenCtx()
 
 # get input par: size
-N <- 2
-if(!is.null(ctx$op.value('N'))) N <- as.numeric(ctx$op.value('N'))
+N <- ctx$op.value('N', as.numeric, 1)
 
-variable <- ctx$select(ctx$colors[[1]])[[1]]
-levels <- unique(variable)
+# get model formula
+random_effects_intercept <- unlist(lapply(
+  ctx$labels, function(x) paste0("(1 | ", x, ")")
+))
+random_effects_intercept <- paste0(random_effects_intercept, collapse = " + ")
+if(random_effects_intercept == "") random_effects_intercept <- NA
 
-ctx %>% 
-  select(.y, .ci, .ri) %>%
-  mutate(variable = variable) %>%
-  group_by(.ci, .ri) %>%
-  do(do.glm(., N, levels)) %>%
+fixed_effects <- paste0(unlist(ctx$cnames), collapse = " + ")
+
+random_effects_slope <- unlist(lapply(
+  ctx$colors, function(x) paste0("(", paste0(fixed_effects, collapse = " + ")," | ", x, ")")
+))
+random_effects_slope <- paste0(random_effects_slope, collapse = " + ")
+if(random_effects_slope == "") random_effects_slope <- NA
+
+eff <- c(fixed_effects, random_effects_intercept, random_effects_slope)
+eff <- eff[!is.na(eff)]
+effects <- paste(eff, collapse = " + ")
+
+df <- ctx$select(c(ctx$colors, ctx$labels, ".y", ".ri", ".ci"))
+if(ctx$hasXAxis) {
+  df$n <- ctx$select(".x")[[1]]
+  df$N <- df$n / df$.y
+} else {
+  df$N <- N
+  df$n <- df$.y
+}
+
+df <- df %>% bind_cols(lapply(ctx$cselect(), function(x) {
+  x[df$.ci + 1]
+}))
+
+model_formula <- paste0("cbind(df$n, df$N - df$n) ~ ", effects)
+
+do.glmer <- function(df) {
+  m <- glmer(as.formula(model_formula), family = "binomial", data = df)
+  
+  df_out <- broom.mixed::tidy(m) %>%
+    filter(effect == "fixed" & term != "(Intercept)") %>%
+    select(term, estimate, std.error, statistic, p.value)
+  
+  return(df_out)
+}
+
+df_out <- df %>% group_by(.ri) %>%
+  do(do.glmer(.)) %>% 
+  mutate(neglog_pvalue = -log10(p.value)) %>%
   ctx$addNamespace() %>%
   ctx$save()

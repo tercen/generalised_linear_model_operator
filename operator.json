@@ -10,8 +10,8 @@
     "name": "N",
     "defaultValue": 1,
     "description": "Size N (binomial distribution parameter)."
-    } 
-  ]
+   }
+ ]
 }
 
 
