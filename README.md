@@ -9,8 +9,9 @@ The `logistic regression operator` performs a logistic regression on a set of da
 Input projection|.
 ---|---
 `y-axis`        | numeric, response variable (must be a count)
-`column`        | character, observations
-`colors`        | numeric/character, explanatory variable
+`column`        | numeric/character, fixed effects
+`colors`        | numeric/character, random effects on the slopes
+`labels`        | numeric/character, random effects on the intercept
 
 Input parameters|.
 ---|---
@@ -18,16 +19,18 @@ Input parameters|.
 
 Output relations|.
 ---|---
-`pval_GROUP`        | numeric, p-value of the effect of a given category, per cell
-`coef_GROUP`        | numeric, estimate of the effect of a given category, per cell
-`pval_full`        | numeric, p-value of the model versus a null model
-
+`term`        | numeric, term / category, per row
+`estimate`        | numeric, estimate of the effect of a given category, per row
+`std.error`        | numeric, standard error of the effect of a given category, per row
+`statistic`        | numeric, p-value of the effect of a given category, per row
+`p.value`        | numeric, p-value, per row
+`neglog_pvalue`        | numeric, -log10(p-value), per row
+term, estimate, std.error, statistic, p.value
 ##### Details
 
-Details on the computation.
+The operator uses the `glmer()` function from the `lme4` R package.
 
 ##### See Also
 
-[template_shiny_operator](https://github.com/tercen/template_shiny_operator)
-, [template_docker_operator](https://github.com/tercen/template_docker_operator)
+[lm_operator](https://github.com/tercen/lm_operator)
 

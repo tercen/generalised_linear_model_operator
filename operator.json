@@ -1,7 +1,7 @@
 {
   "name": "Logistic Regression",
-  "description": "Calculates a probability of whether a data point will meet a binary criteria.",
-  "tags": ["statistical testing", "linear model", "test"],
+  "description": "Fit a logistic regression model. The operator supports random effects.",
+  "tags": ["statistical testing", "linear model", "regression"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/logistic_regression_operator"],
   "properties": [

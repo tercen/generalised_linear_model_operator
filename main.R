@@ -4,9 +4,6 @@ library(lme4)
 library(broom)
 library(broom.mixed)
 
-# options("tercen.workflowId"= "1c421ac85832bc0e153d047644b2304c")
-# options("tercen.stepId"= "934e99de-54ee-482f-a443-88283abd6874")
-
 ctx <- tercenCtx()
 
 # get input par: size
