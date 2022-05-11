@@ -3,7 +3,8 @@
   "description": "Fit a generalised linear (mixed) model to the data. The operator supports random effects.",
   "tags": ["statistical testing", "linear model", "regression"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/logistic_regression_operator"],
+  "urls": ["https://github.com/tercen/generalised_linear_model_operator"],
+  "container": "tercen/generalised_linear_model_operator:latest"
   "properties": [
    {
     "kind": "DoubleProperty",
