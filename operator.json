@@ -4,7 +4,7 @@
   "tags": ["statistical testing", "linear model", "regression"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/generalised_linear_model_operator"],
-  "container": "tercen/generalised_linear_model_operator:latest"
+  "container": "tercen/generalised_linear_model_operator:0.1.4"
   "properties": [
    {
     "kind": "DoubleProperty",
