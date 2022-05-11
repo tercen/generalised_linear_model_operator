@@ -8,7 +8,7 @@ ctx <- tercenCtx()
 
 # get input par: size
 N <- ctx$op.value('N', as.numeric, 1)
-model.family <- ctx$op.value('model.family', as.character, "binomial") # "gaussian", "binomial", "negative.binomial"
+model.family <- ctx$op.value('model.family', as.character, "negative.binomial") # "gaussian", "binomial", "negative.binomial"
 
 # get model formula
 random_effects_intercept <- unlist(lapply(
@@ -54,22 +54,27 @@ if(model.family == "negative.binomial") {
   model_formula <- paste0("cbind(df$n, df$N - df$n) ~ ", effects)
 }
 
-do.glmer <- function(df) {
+do.glmer <- function(df, model.family) {
+  
   if(model.family == "negative.binomial") {
-    m <- glmer.nb(as.formula(model_formula), data = df)
+    m <- try(glmer.nb(as.formula(model_formula), data = df))
   } else {
-    m <- glmer(as.formula(model_formula), family = "binomial", data = df)
+    m <- try(glmer(as.formula(model_formula), family = "binomial", data = df))
   }
   
-  df_out <- broom.mixed::tidy(m) %>%
-    filter(effect == "fixed" & term != "(Intercept)") %>%
-    select(term, estimate, std.error, statistic, p.value)
+  if("try-error" %in% class(m)) {
+    df_out <- tibble::tibble(term = NA, estimate = NA, std.error = NA, statistic = NA, p.value = NA)
+  } else {
+    df_out <- broom.mixed::tidy(m) %>%
+      filter(effect == "fixed" & term != "(Intercept)") %>%
+      select(term, estimate, std.error, statistic, p.value)
+  }
   
   return(df_out)
 }
 
 df_out <- df %>% group_by(.ri) %>%
-  do(do.glmer(.)) %>% 
+  do(do.glmer(., model.family)) %>% 
   mutate(neglog_pvalue = -log10(p.value)) %>%
   ctx$addNamespace() %>%
   ctx$save()
