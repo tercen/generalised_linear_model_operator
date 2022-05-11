@@ -1,6 +1,6 @@
 {
-  "name": "Logistic Regression",
-  "description": "Fit a logistic regression model. The operator supports random effects.",
+  "name": "Generalised Linear Model",
+  "description": "Fit a generalised linear (mixed) model to the data. The operator supports random effects.",
   "tags": ["statistical testing", "linear model", "regression"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/logistic_regression_operator"],
@@ -10,6 +10,17 @@
     "name": "N",
     "defaultValue": 1,
     "description": "Size N (binomial distribution parameter)."
+   },
+    {
+    "kind": "EnumratedProperty",
+    "name": "model.family",
+    "defaultValue": "binomial",
+    "values": [
+      "binomial",
+      "negative.binomial",
+      "gaussian"
+    ],
+    "description": "Model family (any of binomial, negative binomial, gaussian)."
    }
  ]
 }

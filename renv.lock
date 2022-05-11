@@ -213,17 +213,17 @@
     },
     "furrr": {
       "Package": "furrr",
-      "Version": "0.2.3",
+      "Version": "0.3.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "2aba4ab06e8707ac054c6683cb6fed56"
+      "Hash": "c7cf394610e3aaf086fa4b66c382016e"
     },
     "future": {
       "Package": "future",
-      "Version": "1.24.0",
+      "Version": "1.25.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "5cc7addaa73372fbee0a7d06c880068e"
+      "Hash": "877024e372cf61e41f5d13eafd8d4bac"
     },
     "generics": {
       "Package": "generics",
@@ -234,10 +234,10 @@
     },
     "globals": {
       "Package": "globals",
-      "Version": "0.14.0",
+      "Version": "0.15.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "eca8023ed5ca6372479ebb9b3207f5ae"
+      "Hash": "ace993e2dad5e64ed46391302b79e94f"
     },
     "glue": {
       "Package": "glue",
@@ -325,10 +325,10 @@
     },
     "parallelly": {
       "Package": "parallelly",
-      "Version": "1.31.0",
+      "Version": "1.31.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ceef6586b2539fd15f4cdf87061bfa04"
+      "Hash": "115faaa1a50897c3e2339d1cb7d3d493"
     },
     "pillar": {
       "Package": "pillar",
@@ -458,16 +458,16 @@
     },
     "tercen": {
       "Package": "tercen",
-      "Version": "0.12.0",
+      "Version": "0.12.5",
       "Source": "GitHub",
-      "Remotes": "tercen/tercenApi@0.11.0",
+      "Remotes": "tercen/tercenApi@0.12.2",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "tercen",
+      "RemoteRepo": "teRcen",
       "RemoteUsername": "tercen",
       "RemoteRef": "HEAD",
-      "RemoteSha": "44557eba1fb1614ba63f03944badda988e883971",
-      "Hash": "c6f9dcf9b44ccff11381b5abae28e164"
+      "RemoteSha": "884ef2ebb4cded2d52a55b84ec724c26bf2def03",
+      "Hash": "ecbb84e3f1d8a45845975b69fffb3bf3"
     },
     "tercenApi": {
       "Package": "tercenApi",
@@ -477,9 +477,9 @@
       "RemoteHost": "api.github.com",
       "RemoteRepo": "tercenApi",
       "RemoteUsername": "tercen",
-      "RemoteRef": "HEAD",
+      "RemoteRef": "0.12.2",
       "RemoteSha": "7f1274676d90681341833c289688e80f45c2638f",
-      "Hash": "5966ea209aff305ac6dde9ec3b696931"
+      "Hash": "114a08bf7a50de3ba2063b618c045f73"
     },
     "testthat": {
       "Package": "testthat",
@@ -518,17 +518,17 @@
     },
     "uuid": {
       "Package": "uuid",
-      "Version": "1.0-4",
+      "Version": "1.1-0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "99c959c7424be995ddca19b5736c8dd0"
+      "Hash": "f1cb46c157d080b729159d407be83496"
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.4.0",
+      "Version": "0.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "95c2573b232eac82df562f9e300f9790"
+      "Hash": "8b54f22e2a58c4f275479c92ce041a57"
     },
     "waldo": {
       "Package": "waldo",
