@@ -1,6 +1,6 @@
 {
-  "name": "Generalised Linear Model",
-  "description": "Fit a generalised linear (mixed) model to the data. The operator supports random effects.",
+  "name": "Logistic Regression",
+  "description": "Fits a logistic regression model to your data.",
   "tags": [
     "statistical testing",
     "linear model"
