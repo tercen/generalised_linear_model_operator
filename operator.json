@@ -30,5 +30,64 @@
       ],
       "description": "Model family (any of binomial, negative binomial, gaussian)."
     }
-  ]
+  ],
+  "operatorSpec": {
+    "kind": "OperatorSpec",
+    "ontologyUri": "https://tercen.com/_ontology/tercen",
+    "ontologyVersion": "0.0.1",
+    "inputSpecs": [
+      {
+        "kind": "CrosstabSpec",
+        "metaFactors": [
+          {
+            "kind": "MetaFactor",
+            "name": "Fixed Effects",
+            "type": "",
+            "description": "Fixed effects (numeric or character)",
+            "ontologyMapping": "variable",
+            "crosstabMapping": "column",
+            "cardinality": "1..n",
+            "factors": []
+          },
+          {
+            "kind": "MetaFactor",
+            "name": "Random Effects - Slopes",
+            "type": "",
+            "description": "Random effects on slopes (numeric or character)",
+            "ontologyMapping": "observation",
+            "crosstabMapping": "colors",
+            "cardinality": "0..n",
+            "factors": []
+          },
+          {
+            "kind": "MetaFactor",
+            "name": "Random Effects - Intercept",
+            "type": "",
+            "description": "Random effects on intercept (numeric or character)",
+            "ontologyMapping": "observation",
+            "crosstabMapping": "labels",
+            "cardinality": "0..n",
+            "factors": []
+          }
+        ],
+        "axis": [
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "Response Variable",
+                "type": "numeric",
+                "description": "Response variable (must be a count)",
+                "ontologyMapping": "measurement",
+                "crosstabMapping": "y",
+                "cardinality": "1",
+                "factors": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
