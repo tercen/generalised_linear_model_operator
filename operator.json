@@ -48,26 +48,6 @@
             "crosstabMapping": "column",
             "cardinality": "1..n",
             "factors": []
-          },
-          {
-            "kind": "MetaFactor",
-            "name": "Random Effects - Slopes",
-            "type": "",
-            "description": "Random effects on slopes (numeric or character)",
-            "ontologyMapping": "observation",
-            "crosstabMapping": "colors",
-            "cardinality": "0..n",
-            "factors": []
-          },
-          {
-            "kind": "MetaFactor",
-            "name": "Random Effects - Intercept",
-            "type": "",
-            "description": "Random effects on intercept (numeric or character)",
-            "ontologyMapping": "observation",
-            "crosstabMapping": "labels",
-            "cardinality": "0..n",
-            "factors": []
           }
         ],
         "axis": [
@@ -82,6 +62,26 @@
                 "ontologyMapping": "measurement",
                 "crosstabMapping": "y",
                 "cardinality": "1",
+                "factors": []
+              },
+              {
+                "kind": "MetaFactor",
+                "name": "Random Effects - Slopes",
+                "type": "",
+                "description": "Random effects on slopes (numeric or character)",
+                "ontologyMapping": "factor",
+                "crosstabMapping": "color",
+                "cardinality": "0..n",
+                "factors": []
+              },
+              {
+                "kind": "MetaFactor",
+                "name": "Random Effects - Intercept",
+                "type": "",
+                "description": "Random effects on intercept (numeric or character)",
+                "ontologyMapping": "factor",
+                "crosstabMapping": "label",
+                "cardinality": "0..n",
                 "factors": []
               }
             ]
