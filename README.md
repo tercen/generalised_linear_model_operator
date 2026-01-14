@@ -9,9 +9,9 @@ The `logistic regression operator` performs a logistic regression on a set of da
 Input projection|.
 ---|---
 `y-axis`        | numeric, response variable (must be a count)
-`column`        | numeric/character, fixed effects
-`colors`        | numeric/character, random effects on the slopes
-`labels`        | numeric/character, random effects on the intercept
+`column`        | numeric/character, fixed effects (required)
+`color`         | optional, numeric/character, random effects on the slopes
+`labels`        | optional, numeric/character, random effects on the intercept
 
 Input parameters|.
 ---|---
