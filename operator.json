@@ -69,7 +69,7 @@
                 "name": "Random Effects - Slopes",
                 "type": "",
                 "description": "Random effects on slopes (numeric or character)",
-                "ontologyMapping": "factor",
+                "ontologyMapping": "group",
                 "crosstabMapping": "color",
                 "cardinality": "0..n",
                 "factors": []
@@ -79,7 +79,7 @@
                 "name": "Random Effects - Intercept",
                 "type": "",
                 "description": "Random effects on intercept (numeric or character)",
-                "ontologyMapping": "factor",
+                "ontologyMapping": "group",
                 "crosstabMapping": "label",
                 "cardinality": "0..n",
                 "factors": []
