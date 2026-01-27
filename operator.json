@@ -41,6 +41,16 @@
         "metaFactors": [
           {
             "kind": "MetaFactor",
+            "name": "Observation",
+            "type": "",
+            "description": "Observation groups for model fitting",
+            "ontologyMapping": "observation",
+            "crosstabMapping": "row",
+            "cardinality": "0..n",
+            "factors": []
+          },
+          {
+            "kind": "MetaFactor",
             "name": "Fixed Effects",
             "type": "",
             "description": "Fixed effects (numeric or character)",
